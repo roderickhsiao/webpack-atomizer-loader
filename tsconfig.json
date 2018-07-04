@@ -1,0 +1,9 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "lib": ["es5", "es2015", "dom", "scripthost", "es2015.promise"]
+    },
+    "include": ["lib/**/*"]
+}
