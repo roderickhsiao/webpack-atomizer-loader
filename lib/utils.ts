@@ -1,8 +1,7 @@
-import * as fs from "fs";
-import * as Promise from "bluebird";
-import * as path from "path";
+import * as fs from 'fs';
+import * as path from 'path';
 
-const PATH_SEP: string = "/";
+const PATH_SEP: string = '/';
 
 export function writeCssFile(cssDest: string, cssString: string): Promise<Function> {
     return new Promise((resolve, reject) => {
@@ -16,13 +15,13 @@ export function writeCssFile(cssDest: string, cssString: string): Promise<Functi
     });
 }
 
-export function ensureFolderExists(path: string, mask: string = "0777"): boolean {
+export function ensureFolderExists(path: string, mask: string = '0777'): boolean {
     let isExisted: boolean = false;
     try {
         fs.mkdirSync(path, mask);
         isExisted = true;
     } catch (err) {
-        if (err.code === "EEXIST") {
+        if (err.code === 'EEXIST') {
             isExisted = true;
         }
     }
@@ -34,7 +33,7 @@ export function ensureExists(filePath: string): boolean {
     let result: boolean = true;
     let currentPath: string;
 
-    if (dirs[0] === "") {
+    if (dirs[0] === '') {
         dirs[0] = path.sep;
     }
 

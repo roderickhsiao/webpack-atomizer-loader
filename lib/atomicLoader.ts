@@ -1,18 +1,17 @@
-"use strict";
+'use strict';
 
-import * as Atomizer from "atomizer";
-import * as cssnano from "cssnano";
-import { getOptions } from "loader-utils";
-import * as postcss from "postcss";
-import * as Promise from "bluebird";
+import * as Atomizer from 'atomizer';
+import * as cssnano from 'cssnano';
+import { getOptions } from 'loader-utils';
+import * as postcss from 'postcss';
 
-import { writeCssFile, ensureExists } from "./utils";
+import { writeCssFile, ensureExists } from './utils';
 
-const DEFAULT_CSS_DEST: string = "./build/css/atomic.css";
+const DEFAULT_CSS_DEST: string = './build/css/atomic.css';
 const DEFAULT_POSTCSS_PLUGIN_LIST: string[] = [];
 
 // cached response to prevent unnecessary update
-let cachedResponse: string = "";
+let cachedResponse: string = '';
 
 const atomizer: any = new Atomizer({ verbose: true });
 
@@ -34,9 +33,9 @@ interface PathConfigOption {
 }
 
 interface PathConfig {
+    configs: object;
     cssDest: string;
     options: PathConfigOption;
-    configs: object;
 }
 
 const parseAndGenerateFile = function(
@@ -57,7 +56,7 @@ const parseAndGenerateFile = function(
         let cssDest = pathConfig.cssDest || DEFAULT_CSS_DEST;
 
         if (!ensureExists(cssDest)) {
-            console.warn("[atomic loader] create css failed.");
+            console.warn('[atomic loader] create css failed.');
             return;
         }
 
@@ -78,7 +77,7 @@ const parseAndGenerateFile = function(
         }
 
         pipeline.process(cssString).then(result => {
-            const { css = "" } = result;
+            const { css = '' } = result;
 
             if (css === cachedResponse) {
                 return resolve();
