@@ -70,13 +70,12 @@ const parseAndGenerateFile = function(
 
         const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
         const cssString: string = atomizer.getCss(finalConfig, pathConfig.options || {});
-
         const pipeline = postcss(validPostcssPlugins);
         if (minimize) {
             pipeline.use(cssnano());
         }
 
-        pipeline.process(cssString).then(result => {
+        pipeline.process(cssString, { from: undefined }).then(result => {
             const { css = '' } = result;
 
             if (css === cachedResponse) {
