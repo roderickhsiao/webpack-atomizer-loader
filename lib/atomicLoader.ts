@@ -70,6 +70,7 @@ const parseAndGenerateFile = function(
 
         const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
         const cssString: string = atomizer.getCss(finalConfig, pathConfig.options || {});
+
         const pipeline = postcss(validPostcssPlugins);
         if (minimize) {
             pipeline.use(cssnano());
