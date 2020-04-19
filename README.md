@@ -126,7 +126,7 @@ or
 
 After this you should be able to see the Atom CSS classes loaded on the browser and applied to your components.
 
-## Usage with [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) and [`webpack-html-plugin`](https://github.com/jantimon/html-webpack-plugin)
+## Usage with `mini-css-extract-plugin` and `webpack-html-plugin`
 
 If the CSS atoms are on `class` attributes on `.htm` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) you must use [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) and optionally [`webpack-html-plugin`](https://github.com/jantimon/html-webpack-plugin):
 
