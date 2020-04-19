@@ -61,41 +61,41 @@ Find `babel-loader` or `jsx-loader` on your webpack configuration and insert `we
 const path = require('path');
 
 module.exports = {
-	module: {
-		rules: [
-			{
-				test: /\.jsx?$/, // or /\.vue?$/
-				exclude: /node_modules/,
-				use: [
-					{
-						loader: 'webpack-atomizer-loader',
-						options: {
-							configPath: path.resolve('./atomCssConfig.js')
-						}
-					},
-					{
-						loader: 'babel-loader',
-						options: {
-							presets: ['react', 'es2015']
-						}
-					},
-				]
-			},
-			{
-				test: /\.css$/, // or /\.scss$/
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					{
-						loader: 'postcss-loader', // or 'sass-loader'
-						options: {
-							// ...
-						}
-					},
-				]
-			}
-		]
-	}
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/, // or /\.vue?$/
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'webpack-atomizer-loader',
+                        options: {
+                            configPath: path.resolve('./atomCssConfig.js')
+                        }
+                    },
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['react', 'es2015']
+                        }
+                    },
+                ]
+            },
+            {
+                test: /\.css$/, // or /\.scss$/
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader', // or 'sass-loader'
+                        options: {
+                            // ...
+                        }
+                    },
+                ]
+            }
+        ]
+    }
 };
 ```
 
@@ -136,48 +136,48 @@ If the CSS atoms are on `class` attributes on `.htm` files (or any other templat
 const path = require('path');
 
 module.exports = {
-	module: {
-		rules: [
-			{
-				test: /\.css$/, // or /\.scss$/
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					{
-						loader: 'postcss-loader', // or 'sass-loader'
-						options: {
-							// ...
-						}
-					},
-				]
-			},
-			{
-				test: /\.htm$/, // or /\.hbs$/
-				use: [
-					{
-						loader: 'html-loader', // Or the corresponding loader for the template system you're using
-						options: {
-							attributes: false,
-							minimize: true
-						}
-					},
-					{
-						loader: 'webpack-atomizer-loader',
-						options: {
-							configPath: path.resolve('./atomCssConfig.js')
-						}
-					}
-				]
-			}
-		]
-	},
-	plugins: [
-		new HtmlWebpackPlugin({ // Only needed if you're using this plugin
-			template: 'src/originTemplate.htm',
-			filename: 'dist/destinationFile.htm'
-		}),
-		new MiniCssExtractPlugin()
-	]
+    module: {
+        rules: [
+            {
+                test: /\.css$/, // or /\.scss$/
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader', // or 'sass-loader'
+                        options: {
+                            // ...
+                        }
+                    },
+                ]
+            },
+            {
+                test: /\.htm$/, // or /\.hbs$/
+                use: [
+                    {
+                        loader: 'html-loader', // Or the corresponding loader for the template system you're using
+                        options: {
+                            attributes: false,
+                            minimize: true
+                        }
+                    },
+                    {
+                        loader: 'webpack-atomizer-loader',
+                        options: {
+                            configPath: path.resolve('./atomCssConfig.js')
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({ // Only needed if you're using this plugin
+            template: 'src/originTemplate.htm',
+            filename: 'dist/destinationFile.htm'
+        }),
+        new MiniCssExtractPlugin()
+    ]
 };
 ```
 
