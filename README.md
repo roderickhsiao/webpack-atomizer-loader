@@ -7,7 +7,7 @@ Webpack loader for compiling [Atomic CSS](https://acss.io).
 
 1. [Install](#install)
 1. [Atomic CSS configuration](#atomic-css-configuration)
-1. [Usage with React or Vue.js](#usage-with-react-or-vue.js)
+1. [Usage with React or Vue](#usage-with-react-or-vue)
 1. [Usage with `mini-css-extract-plugin` and `webpack-html-plugin`](#usage-with-mini-css-extract-plugin-and-webpack-html-plugin)
 1. [Advanced](#advanced)
 
@@ -49,7 +49,7 @@ module.exports = {
 
  To know more about Atomic CSS configuration check https://github.com/acss-io/atomizer#api.
 
-## Usage with React or Vue.js
+## Usage with React or Vue
 
 If the CSS atoms on your project are written in the `className` prop of JSX files follow these intructions.
 
