@@ -47,9 +47,9 @@ module.exports = {
 }
 ```
 
- To assign the output destination of the generated CSS the parameter `cssDest` should be set. If no specified the default value of `cssDest` is `./build/css/atomic.css`.
+To assign the output destination of the generated CSS the parameter `cssDest` should be set. If no specified the default value of `cssDest` is `./build/css/atomic.css`.
 
- To know more about Atomic CSS configuration check https://github.com/acss-io/atomizer#api.
+To know more about Atomic CSS configuration check https://github.com/acss-io/atomizer#api.
 
 ## Usage with React or Vue
 
@@ -103,7 +103,7 @@ module.exports = {
 };
 ```
 
-`webpack-atomizer-loader` will generate a `generatedAtoms.css` file which will have to be imported into the final `public/index.htm` file. This can be done in three different ways:
+`webpack-atomizer-loader` will generate a `generatedAtoms.css` file which will have to be imported into the final `public/index.html` file. This can be done in three different ways:
 
 ### Including the generated CSS with JavaScript
 
@@ -163,12 +163,12 @@ If you don't need any CSS preprocessing functionality you can remove the entire 
 and just import the generated CSS file directly into the HTML file of your template:
 
 ```html
-<!-- public/index.htm -->
+<!-- public/index.html -->
 
 <html>
   <head>
-    <link href="projectStyles.css" />
-    <link href="generatedAtoms.css" />
+    <link href="projectStyles.css" rel="stylesheet" type="text/css" />
+    <link href="generatedAtoms.css" rel="stylesheet" type="text/css" />
   </head>
 ```
 
@@ -176,7 +176,7 @@ After this you should be able to see the Atom CSS classes loaded on the browser 
 
 ## Usage with `mini-css-extract-plugin` and `webpack-html-plugin`
 
-If the CSS atoms are on `class` attributes on `.htm` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) you can use the [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) and [`webpack-html-plugin`](https://github.com/jantimon/html-webpack-plugin) combo:
+If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) you can use the [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) and [`webpack-html-plugin`](https://github.com/jantimon/html-webpack-plugin) combo:
 
 ```js
 // webpack.config.js
@@ -202,7 +202,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.htm$/, // or /\.hbs$/
+                test: /\.html$/, // or /\.hbs$/
                 use: [
                     {
                         loader: 'html-loader', // Or the corresponding loader for the template system you're using
@@ -236,7 +236,7 @@ a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/mas
 
 ## Usage with only `html-loader`
 
-If the CSS atoms are on `class` attributes on `.htm` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) and you don't require any CSS preprocessing or want to keep the webpack configuration to the minimum you can just scan HTML files to find the atoms and generate the final CSS file:
+If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) and you don't require any CSS preprocessing or want to keep the webpack configuration to the minimum you can just scan HTML files to find the atoms and generate the final CSS file:
 
 ```js
 // webpack.config.js
@@ -247,7 +247,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.htm$/, // or /\.hbs$/
+                test: /\.html$/, // or /\.hbs$/
                 use: [
                     {
                         loader: 'html-loader', // Or the corresponding loader for the template system you're using
@@ -273,8 +273,8 @@ Then on your webpack JavaScript entry file:
 ```js
 // index.js
 
-import WillFireHTMLLoader from './templateWithAtoms.htm' // Add an import for every HTML template you have
-import WillFireHTMLLoader2 from './templateWithAtoms2.htm'
+import WillFireHTMLLoader from './templateWithAtoms.html' // Add an import for every HTML template you have
+import WillFireHTMLLoader2 from './templateWithAtoms2.html'
 ```
 
 Every `import` will make `webpack-atomizer-loader` scaning the HTML file imported and generating the corresponding atom classes that will be stored in one single `generatedAtoms.css`. The option `preprocessor: () => ''` will prevent that the HTML imported as a JavaScript variable is added to the JavaScript bundle.
@@ -282,12 +282,12 @@ Every `import` will make `webpack-atomizer-loader` scaning the HTML file importe
 Then on your HTML file:
 
 ```html
-<!-- public/index.htm -->
+<!-- public/index.html -->
 
 <html>
   <head>
-    <link href="projectStyles.css" />
-    <link href="generatedAtoms.css" />
+    <link href="projectStyles.css" rel="stylesheet" type="text/css" />
+    <link href="generatedAtoms.css" rel="stylesheet" type="text/css" />
   </head>
 ```
 
