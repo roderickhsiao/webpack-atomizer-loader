@@ -223,8 +223,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/originTemplate.htm',
-            filename: 'dist/destinationFile.htm'
+            template: 'src/originTemplate.html',
+            filename: 'dist/destinationFile.html'
         }),
         new MiniCssExtractPlugin()
     ]
