@@ -222,7 +222,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ // Only needed if you're using this plugin
+        new HtmlWebpackPlugin({
             template: 'src/originTemplate.htm',
             filename: 'dist/destinationFile.htm'
         }),
