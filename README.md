@@ -26,7 +26,7 @@ $ yarn add webpack-atomizer-loader -D
 The loader accepts three options:
 
 Option | Default | Required | Description
-- | - | - | -
+-- | - | - | -
 `configPath` | `undefined` | Yes | The path to the Atom CSS config file. Check [Atomic CSS configuration](#atomic-css-configuration) section.
 `minimize` | `false` | No | Minimizes the resulting CSS file.
 `postcssPlugins` | `[]` | No | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.
@@ -270,7 +270,7 @@ module.exports = {
 By default if no HTML loader is specified `webpack-html-plugin` will use
 a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md). However as soon as `webpack-atomizer-loader` fires because of the `html` extension rule the default HTML loader will be disabled and we'll have to include ours. That's why on the above configuration in addition to `webpack-atomizer-loader` it's also included `html-loader`.
 
-Like when using the loader for React or Vue projects the generated CSS file with the atom classes still needs to be included in any of the three possible ways: with a [JavaScript import](#including-the-generated-css-with-javascript), with a [CSS import](#including-the-generated-css-with-a-css-import) or [Including the generated CSS straight into the HTML template](#including-the-generated-css-straight-into-the-HTML-template).
+Like when using the loader for React or Vue projects the generated CSS file with the atom classes still needs to be included in any of the three possible ways: with a [JavaScript import](#including-the-generated-css-with-javascript), with a [CSS import](#including-the-generated-css-with-a-css-import) or [Including the generated CSS directly into the HTML template](#including-the-generated-css-directly-into-the-HTML-template).
 
 ## Usage with only `html-loader`
 
