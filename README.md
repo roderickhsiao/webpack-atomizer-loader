@@ -27,7 +27,7 @@ The loader accepts three options:
 
 Option | Default | Required | Description
 -- | - | - | -
-`configPath` | `undefined` | No | The path to the Atom CSS config file. If no specified empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section.
+`configPath` | `undefined` | No | The path to the Atomic CSS config file. If no specified empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section.
 `minimize` | `false` | No | Minimizes the resulting CSS file.
 `postcssPlugins` | `[]` | No | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.
 
@@ -208,7 +208,7 @@ and just import the generated CSS file directly into the HTML file of your templ
   </head>
 ```
 
-After this you should be able to see the Atom CSS classes loaded on the browser and applied to your components.
+After this you should be able to see the atom classes loaded on the browser and applied to your components.
 
 ## Usage with `mini-css-extract-plugin` and `webpack-html-plugin`
 
