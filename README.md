@@ -27,7 +27,7 @@ The loader accepts three options:
 
 Option | Default | Required | Description
 -- | - | - | -
-`configPath` | `undefined` | Yes | The path to the Atom CSS config file. Check [Atomic CSS configuration](#atomic-css-configuration) section.
+`configPath` | `undefined` | No | The path to the Atom CSS config file. If no specified empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section.
 `minimize` | `false` | No | Minimizes the resulting CSS file.
 `postcssPlugins` | `[]` | No | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.
 
