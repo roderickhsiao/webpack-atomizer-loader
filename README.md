@@ -274,7 +274,7 @@ Like when using the loader for React or Vue projects the generated CSS file with
 
 ## Usage with only `html-loader`
 
-If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) and you don't require any CSS preprocessing or want to keep the webpack configuration to the minimum you can just scan HTML files to find the atoms and include the generated CSS file directly into the final HTML template:
+If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`, or even `jsx` or `vue`) and you don't require any CSS preprocessing or want to keep the webpack configuration to the minimum you can just scan HTML files to find the atoms and include the generated CSS file directly into the final HTML template:
 
 ```js
 // webpack.config.js
@@ -285,7 +285,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.html$/, // or /\.hbs$/
+                test: /\.html$/, // or /\.hbs$/ or /\.jsx$/ (you may need to change loaders order and put webpack-atomizer-loader first on the array)
                 use: [
                     {
                         loader: 'html-loader', // Or the corresponding loader for the template system you're using
