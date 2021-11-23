@@ -108,10 +108,11 @@ const atomicLoader = function (source, map) {
 
     let configs = [
         ...[].concat(configPath).map((configPath) => {
+            // for watch mode
             if (addDependency) {
                 addDependency(configPath);
             }
-            return require(require.resolve(configPath))
+            return require(require.resolve(configPath));
         }),
         ...(config !== undefined ? [config] : []),
     ];
